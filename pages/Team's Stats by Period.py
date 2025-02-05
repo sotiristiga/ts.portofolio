@@ -910,7 +910,7 @@ player_quarter_stats['ex_FT(%)']=(100*player_quarter_stats['ex_FTM']/player_quar
 regex1="Player|"+stat_choose
 interactive_table(
                 player_quarter_stats.set_index('Player').filter(regex=regex1),
-                paging=False, height=900, width=2000, showIndex=False,
+                paging=False, height=900, width=2000, showIndex=True,
                 classes="display order-column nowrap table_with_monospace_font", searching=False,
                 fixedColumns=True, select=True, info=False, scrollCollapse=True,
                 scrollX=True, scrollY=1000, fixedHeader=True, scroller=True, filter='bottom',
