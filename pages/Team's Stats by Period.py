@@ -432,19 +432,6 @@ pbp_data_df2425['SECONDS_diff']=-pbp_data_df2425['SECONDS'].diff()
 pbp_data_df2425=pd.merge(pbp_data_df2425,extra_details).sort_values(['Fixture','GAMECODE','NUMBEROFPLAY'])
 
 
-
-interactive_table(
-                pbp_data_df2425,
-                paging=True, height=990, width=2000, showIndex=True,
-                classes="display order-column nowrap table_with_monospace_font", searching=True,
-                fixedColumns=True, select=True, info=False, scrollCollapse=True,
-                scrollX=True, scrollY=1000, fixedHeader=True, scroller=True, filter='bottom',
-                columnDefs=[{"className": "dt-center", "targets": "_all"}])
-
-
-
-st.write(pbp_data_df2425['PLAYTYPE'].unique())
-
 pbp_data_2425=pbp_data_df2425[['GAMECODE','Season','Phase','Fixture','PERIOD','MINUTE','MARKERTIME','Team','Player','PLAYTYPE','Against']]
 coachtimeout=pbp_data_2425.loc[(pbp_data_2425['PLAYTYPE']=='TOUT')]
 coachtimeout['Coach']=coachtimeout.apply(lambda x: team_coach(x['Team'],x['Fixture']),axis=1)
