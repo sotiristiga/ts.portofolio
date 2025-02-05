@@ -387,7 +387,7 @@ def points_scored(sit):
 extra_details=euroleague_2024_2025_playerstats.groupby(['Fixture_Team_Season','Against'])['Player'].count().reset_index()
 extra_details=extra_details.drop('Player',axis=1)
 
-pbp_data_df2425=pd.read_csv("C:/Users/surve/OneDrive/Desktop/Tiganitas work/EUROLEAGUE/stats/basketnews stats/pbp_data_df2425.csv")
+pbp_data_df2425=pd.read_csv(f"https://raw.githubusercontent.com/sotiristiga/ts.portofolio/refs/heads/main/pbp_data_df2425.csv")
 
 pbp_data_df2425=pbp_data_df2425.rename(columns={'Round':'Fixture','CODETEAM':'Team'})
 pbp_data_df2425['Fixture']=pd.to_numeric(pbp_data_df2425['Fixture'])
