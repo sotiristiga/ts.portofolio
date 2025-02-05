@@ -8,3 +8,4 @@ openpyxl
 streamlit-dynamic-filters
 dplython
 itables
+euroleague_api
