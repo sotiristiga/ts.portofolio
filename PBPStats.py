@@ -452,7 +452,7 @@ timeouts_perperiod=coachtimeout[['Team','Fixture','PERIOD']].value_counts().rese
 unf = pbp_data_2425.loc[(pbp_data_2425['PLAYTYPE'].isin(['CMU', "CMD"]))]
 tab1,tab2,tab3=st.tabs(['Team','Coach','Player'])
 with tab1:
-    tab11,tab12=st.tabs(['Technical Foul',"Unsportsmanlike Foul"])
+    tab11,tab12,tab13=st.tabs(['Technical Foul',"Unsportsmanlike Foul","Jumpball wins"])
     with tab11:
         tab111,tab112=st.tabs(['Against','Favor'])
         with tab111:
@@ -505,6 +505,18 @@ with tab1:
                 fixedColumns=True, select=True, info=False, scrollCollapse=True,
                 scrollX=True, scrollY=1000, fixedHeader=True, scroller=True, filter='bottom',
                 columnDefs=[{"className": "dt-center", "targets": "_all"}])
+  with tab13:
+    jumpball=pbp_data_2425.loc[(pbp_data_2425['PLAYTYPE']=='JB')]["Team"].value_counts().reset_index().rename(columns={'count':'Jumpball'}).reset_index()
+    jumpball['Rank'] = jumpball['index'] + 1
+    jumpball.drop('index', axis=1, inplace=True)
+    interactive_table(
+                jumpball.set_index('Rank'),
+                paging=False, height=2000, width=2000, showIndex=True,
+                classes="display order-column nowrap table_with_monospace_font", searching=True,
+                fixedColumns=True, select=True, info=False, scrollCollapse=True,
+                scrollX=True, scrollY=1000, fixedHeader=True, scroller=True, filter='bottom',
+                columnDefs=[{"className": "dt-center", "targets": "_all"}])
+    
 with tab2:
     tab21,tab22 = st.tabs(['Technical Foul','Time outs'])
     with tab21:
