@@ -22,7 +22,7 @@ from euroleague_api.play_by_play_data import PlayByPlay
 from datetime import datetime
 import pytz
 
-st.set_page_config(layout='wide', page_title="Play by play analysis", page_icon="🏀")
+st.set_page_config(layout='wide', page_title="Technical Fouls", page_icon="🏀")
 
 
 def download_image(url, save_as):
